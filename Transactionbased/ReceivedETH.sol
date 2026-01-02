@@ -15,5 +15,8 @@ contract PayableContract {
         return address(this).balance;
     }
 
-    
+    function withdraw() public{
+        require(msg.sender == owner);
+        payable(owner).transfer(address(this).balance);
+    }
 }
