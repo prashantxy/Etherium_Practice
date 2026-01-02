@@ -8,4 +8,12 @@ contract PayableContract {
     constructor (){
         owner = msg.sender;
     }
+
+    receive() external payable{}
+
+    function getBalance() public view returns (uint){
+        return address(this).balance;
+    }
+
+    
 }
